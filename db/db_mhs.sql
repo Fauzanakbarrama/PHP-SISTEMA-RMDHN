@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2023 at 08:08 AM
+-- Generation Time: Nov 17, 2023 at 02:13 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -58,14 +58,6 @@ CREATE TABLE `mahasiswa` (
   `id_wali` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `mahasiswa`
---
-
-INSERT INTO `mahasiswa` (`id_mhs`, `nim`, `nama`, `jurusan`, `jenis_kelamin`, `alamat`, `id_wali`) VALUES
-(12, '001', 'Fauzan', 'TEKNIK INFORMATIKA', 'L', 'Grogol', 3),
-(13, '002', 'RMDHN', 'TEKNIK KIMIA', 'L', 'Sukoharjo', 4);
-
 -- --------------------------------------------------------
 
 --
@@ -78,14 +70,6 @@ CREATE TABLE `wali` (
   `jenis_kelamin` enum('Laki-Laki','Perempuan') NOT NULL,
   `alamat_wali` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `wali`
---
-
-INSERT INTO `wali` (`id_wali`, `nama_wali`, `jenis_kelamin`, `alamat_wali`) VALUES
-(3, 'Yanto', 'Laki-Laki', 'Kaliwingko'),
-(4, 'Umi', 'Perempuan', 'Kaliwingko');
 
 --
 -- Indexes for dumped tables
@@ -124,13 +108,13 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mhs` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_mhs` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `wali`
 --
 ALTER TABLE `wali`
-  MODIFY `id_wali` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_wali` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

@@ -59,7 +59,7 @@
                 <td class='border-2 border-blue-500 px-4 py-2'>" . $row['alamat'] . "</td>
                 <td class='border-2 border-blue-500 px-4 py-2'>
                 <a href='form-edit.php?id_mhs=$row[id_mhs]' class='inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>EDIT</a>
-                <a href='delete.php?id_mhs=$row[id_mhs]' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini?\")' class='inline-block bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'>DELETE</a>
+                <a href='delete.php?id_mhs=$row[id_mhs]' onclick='confirmDelete(event, $row[id_mhs])' class='inline-block bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'>DELETE</a>
                 </td>
                 </tr>";
                 $no++;
@@ -97,6 +97,28 @@
             ?>
         </tbody>
     </table>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    function confirmDelete(event, id) {
+        event.preventDefault(); // Mencegah link langsung terbuka
+
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Anda tidak dapat mengembalikan tindakan ini!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Jika dikonfirmasi, redirect ke delete.php dengan ID yang sesuai
+                window.location.href = `delete.php?id_mhs=${id}`;
+            }
+        });
+    }
+</script>
 </body>
 
 </html>
